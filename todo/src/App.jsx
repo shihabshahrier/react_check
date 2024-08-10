@@ -1,7 +1,30 @@
+import { useState } from "react";
+import Form from "./components/form";
+import Items from "./components/Items";
+
 export default function App() {
+  const [onGoingTasks, setOnGoingTasks] = useState([]);
+  const [completedTasks, setCompletedTasks] = useState([]);
+
   return (
-    <div>
-      <h1>Todo App</h1>
-    </div>
+    <>
+      <Form onGoingTasks={onGoingTasks} setOnGoingTasks={setOnGoingTasks} />
+      <div className="Container">
+        <Items
+          className="OnGoing"
+          tasks={onGoingTasks}
+          setTasks={setOnGoingTasks}
+          completedTasks={completedTasks}
+          setCompletedTasks={setCompletedTasks}
+        />
+        <Items
+          className="Completed"
+          tasks={onGoingTasks}
+          setTasks={setOnGoingTasks}
+          completedTasks={completedTasks}
+          setCompletedTasks={setCompletedTasks}
+        />
+      </div>
+    </>
   );
 }
