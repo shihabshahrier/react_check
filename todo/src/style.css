@@ -1,5 +1,10 @@
 h1 {
-    color: red;
+    color: rgb(255, 0, 0);
     font-size: 2em;
     text-align: center;
+}
+
+.container {
+    text-align: center;
+    margin-top: 20px;
 }
