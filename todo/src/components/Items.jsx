@@ -1,5 +1,7 @@
 import React from 'react';
-import { FaTrash, FaCheck, FaUndo } from 'react-icons/fa';
+import { FaTrash, FaCheck, FaUndo, FaEdit } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Items({
     className,
@@ -8,6 +10,7 @@ export default function Items({
     completedTasks = [],
     setCompletedTasks,
 }) {
+    const navigate = useNavigate();
     const isOnGoing = className === "OnGoing";
     const itemsToDisplay = isOnGoing ? tasks : completedTasks;
     const displayTitle = isOnGoing ? "On Going Tasks" : "Completed Tasks";
@@ -33,6 +36,10 @@ export default function Items({
         }
     };
 
+    const handleEdit = (id) => {
+        navigate(`/update-task/${id}`);
+    }
+
     return (
         <div className={`box ${className}`}>
             <h3>{displayTitle}</h3>
@@ -54,6 +61,12 @@ export default function Items({
                                         title="Undo"
                                     />
                                 )}
+
+                            <FaEdit
+                                className="icon edit-icon"
+                                onClick={() => handleEdit(item.id)}
+                                title="Edit"
+                            />
 
                             <FaTrash
                                 className="icon delete-icon"

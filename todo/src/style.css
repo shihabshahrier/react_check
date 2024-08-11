@@ -22,9 +22,10 @@ input {
 
 button {
     margin: 0 10px;
-    width: 100px;
+    /* flexible width*/
+    width: auto;
     height: 30px;
-    font-size: 20px;
+    font-size: 18px;
     background-color: #555555;
     color: white;
     border: none;
@@ -76,4 +77,14 @@ button:hover {
 
 .delete-icon {
     color: #dc3545;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    color: white;
+    text-align: center;
 }

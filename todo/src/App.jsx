@@ -1,30 +1,17 @@
-import { useState } from "react";
-import Form from "./components/form";
-import Items from "./components/Items";
+import React from 'react'
+import Home from './Pages/Home'
+import Updatetask from './Pages/Updatetask'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App() {
-  const [onGoingTasks, setOnGoingTasks] = useState([]);
-  const [completedTasks, setCompletedTasks] = useState([]);
-
   return (
     <>
-      <Form onGoingTasks={onGoingTasks} setOnGoingTasks={setOnGoingTasks} />
-      <div className="Container">
-        <Items
-          className="OnGoing"
-          tasks={onGoingTasks}
-          setTasks={setOnGoingTasks}
-          completedTasks={completedTasks}
-          setCompletedTasks={setCompletedTasks}
-        />
-        <Items
-          className="Completed"
-          tasks={onGoingTasks}
-          setTasks={setOnGoingTasks}
-          completedTasks={completedTasks}
-          setCompletedTasks={setCompletedTasks}
-        />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/update-task/:id" element={<Updatetask />} />
+        </Routes>
+      </BrowserRouter>
     </>
-  );
+  )
 }
